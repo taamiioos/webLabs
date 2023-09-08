@@ -50,7 +50,7 @@ $checkZone = new CheckZone($x, $y, $r);
 $flag = $checkZone->check() ? "TRUE" : "FALSE";
 
 $time = date('H:i:s');
-$start_time = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 3);
+$start_time = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 6);
 $res = "<tr>" .
     "<td> $x </td>" .
     "<td> $y </td>" .

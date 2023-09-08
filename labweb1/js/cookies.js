@@ -14,3 +14,12 @@ function getCookie(name) {
     }
     return null;
 }
+document.addEventListener("DOMContentLoaded", function() {
+    let cookieWind = document.getElementById("cookieWind");
+    let cookieButton = document.getElementById("cookieButton");
+    cookieWind.style.display = "block";
+
+    cookieButton.addEventListener("click", function() {
+        cookieWind.style.display = "none";
+    });
+});

@@ -11,6 +11,7 @@
             display: block;
             margin-top: 10px;
         }
+
         .buttons button {
             margin-left: 18px;
             padding: 8px 16px;
@@ -20,6 +21,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #744B0560;
         }
@@ -27,17 +29,17 @@
         button:active {
             background-color: #744405;
         }
-        .cookie-modal {
+
+        #cookieWind {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1000;
         }
 
-        .cookie-modal-content {
+        .cookieContent {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -48,40 +50,37 @@
             text-align: center;
         }
 
-        .cookie-accept-button {
+        #cookieButton {
             background-color: #744b05;
             color: #ffffff;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
         }
+
         .description {
             text-align: center;
             background-color: #e1d9ce;
             padding: 10px;
             font-family: fantasy;
         }
+
         body {
             background-color: #cab08f;
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            margin-top: 1%;
-        }
-        .table {
-            max-height: 300px; 
-            overflow-y: auto;
-            float: right;
-            width: 45%;
-            /*margin-left: 1%;*/
-            margin-top: 70px;
-            padding: 5px;
-            box-sizing: border-box;
-            border-radius: 10px;
-            background-color: #886750;
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
         }
 
         table {
-            width: 100%;
-            border-collapse: collapse;
+            max-height: 500px;
+            overflow-y: auto;
+            float: right;
+            width: 45%;
+            margin-top: 70px;
+            margin-right: 50px;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: #886750;
         }
 
         th, td {
@@ -91,13 +90,14 @@
         }
 
         .window {
+            text-align: center;
             float: left;
             width: 45%;
             height: 50%;
             margin-top: 70px;
+            margin-left: 40px;
             background-color: #886750;
             padding: 10px;
-            box-sizing: border-box;
             border-radius: 10px;
         }
 
@@ -116,7 +116,7 @@
             margin-top: 10px;
         }
 
-        .inputFields label{
+        .inputFields label {
             margin-right: 4px;
         }
     </style>
@@ -126,10 +126,10 @@
     by Mitina Tatiana Olegovna | group: P3221 | variant: 3117
 </div>
 <!--кукисы-->
-<div id="cookieModal" class="cookie-modal">
-    <div class="cookie-modal-content">
+<div id="cookieWind">
+    <div class="cookieContent">
         <p>Site uses cookies for your convenience 🍪</p>
-        <button id="cookieAcceptButton" class="cookie-accept-button">Accept</button>
+        <button id="cookieButton">Accept</button>
     </div>
 </div>
 <!--кукисы-->
@@ -204,12 +204,12 @@
 
         <div class="yInput">
             <label for="y">Y:</label>
-            <input style="width: 40px" type="number" id="y" name="y" min="-3" max="5" step="0.5" placeholder="-5..3" >
+            <input style="width: 40px" type="number" id="y" name="y" min="-3" max="5" step="0.5" placeholder="-5..3">
         </div>
 
         <div class="rInput">
             <label for="r">R:</label>
-            <input style="width: 40px" type="number" id="r" name="y" min="1" max="4" step="0.5" placeholder="1..4" >
+            <input style="width: 40px" type="number" id="r" name="y" min="1" max="4" step="0.5" placeholder="1..4">
         </div>
     </div>
 
@@ -220,7 +220,7 @@
     </div>
 </div>
 
-<table class="table" id='table'>
+<table id='table'>
     <tr>
         <th>X</th>
         <th>Y</th>
