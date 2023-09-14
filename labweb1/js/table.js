@@ -1,44 +1,29 @@
-const table = document.getElementById('table');
-
-function addInTable(data) {
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = data;
-    table.appendChild(newRow);
-
-    const cookieData = getCookie('tableData');
-    let dataArray = [];
-    if (cookieData) {
-        dataArray = JSON.parse(cookieData);
-    }
-    const index = dataArray.indexOf(data);
-    if (index !== -1) {
-        dataArray[index] = data;
-    } else {
-        dataArray.push(data);
-    }
-    setCookie('tableData', JSON.stringify(dataArray), 30);
-}
-
-function loadData() {
-    const cookieData = getCookie('tableData');
-    if (cookieData) {
-        const dataArray = JSON.parse(cookieData);
-        for (const data of dataArray) {
+function loadHistory() {
+    $.ajax({
+        type: "GET",
+        url: "../php/base.php",
+        dataType: "json",
+        success: function(data) {
             addInTable(data);
+        },
+        error: function(XHR, status, error) {
+            console.error("Error:", error);
         }
+    });
+}
+function addInTable(data) {
+    tableBody.innerHTML = '';
+    for (let i = 0; i < data.length; i++) {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = "<td>" + data[i]['x'] + "</td>" +
+            "<td>" + data[i]['y'] + "</td>" +
+            "<td>" + data[i]['r'] + "</td>" +
+            "<td>" + data[i]['flag'] + "</td>" +
+            "<td>" + data[i]['start_time'] + "</td>" +
+            "<td>" + data[i]['time'] + "</td>";
+        tableBody.appendChild(newRow);
     }
 }
-
-window.onload = function () {
-    loadData();
-};
-
-function reset() {
-    const table = document.getElementById('table');
-    const rows = table.getElementsByTagName('tr');
-
-    for (let i = rows.length - 1; i > 0; i--) {
-        table.removeChild(rows[i]);
-    }
-    setCookie('tableData', '', -1);
-}
+document.addEventListener("DOMContentLoaded", function() {
+    loadHistory();
+});

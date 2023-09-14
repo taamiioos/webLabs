@@ -1,11 +1,30 @@
-let y = document.getElementById('y');
-let r = document.getElementById('r');
+const y = document.getElementById('y');
+const r = document.getElementById('r');
+const alerts = document.getElementById('alerts');
+const alertDiv = document.createElement('div');
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+let x = null;
 
-const replaceDot = value => value.replace(',', '.');
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('click', () => {
+        if (checkbox.checked) {
+            x = checkbox.value;
+            checkboxes.forEach(otherCheckbox => {
+                if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        } else {
+            x = null;
+        }
+    });
+});
+
+function replaceDot(value) {
+    return value.replace(',', '.');
+}
 
 const showAlert = message => {
-    const alerts = document.getElementById('alerts');
-    const alertDiv = document.createElement('div');
     alertDiv.textContent = message;
     alerts.appendChild(alertDiv);
     setTimeout(() => {
@@ -52,7 +71,7 @@ function validateXYR() {
         return false;
     }
     if (rRep < 1 || rRep > 4) {
-        showAlert('Значение R должно быть в диапазоне от -5 до 3');
+        showAlert('Значение R должно быть в диапазоне от 1 до 4');
         return false;
     }
     return true;
