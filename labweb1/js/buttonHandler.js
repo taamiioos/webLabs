@@ -1,5 +1,5 @@
 const tableBody = document.querySelector('#table tbody');
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const sendButton = document.getElementById('sendButton');
     const resetButton = document.getElementById('resetButton');
 
