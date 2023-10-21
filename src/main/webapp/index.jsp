@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c2" %>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -112,7 +114,7 @@
         <th>R</th>
         <th>Flag</th>
         <th>Time</th>
-        <th>Script Time</th>
+        <th>Script Time(ms)</th>
     </tr>
     </thead>
     <tbody id="sessionData">
